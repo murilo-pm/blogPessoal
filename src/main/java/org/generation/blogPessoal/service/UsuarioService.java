@@ -18,6 +18,11 @@ public class UsuarioService {
 	private UsuarioRepository repository;
 	
 	public Usuario CadastrarUsuario(Usuario usuario) {
+		
+		//if user is present, then return NULL. In a nutshell, users won't be cloned.
+		if(repository.findByUsuario(usuario.getUsuario()).isPresent())
+			return null;
+		
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		
 		String senhaEncoder = encoder.encode(usuario.getSenha());
@@ -25,6 +30,16 @@ public class UsuarioService {
 		
 		return repository.save(usuario);
 	}
+	
+	/*
+	public Usuario CadastrarUsuario(Usuario usuario) {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		
+		String senhaEncoder = encoder.encode(usuario.getSenha());
+		usuario.setSenha(senhaEncoder);
+		
+		return repository.save(usuario);
+	}*/
 												//retorno dos atributos
 	  public Optional<UserLogin> Logar(Optional<UserLogin> user) {
 	       BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();

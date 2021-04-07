@@ -28,10 +28,13 @@ public class UsuarioController {
 	        .orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	    }
 
-	    @PostMapping("/cadastro")
-	    public ResponseEntity<Usuario> post(@RequestBody Usuario usuario) {
-	        return ResponseEntity.status(HttpStatus.CREATED)
-	        .body(usuarioService.CadastrarUsuario(usuario));
-	    }
-	    
+	    @PostMapping("/cadastrar")
+	    public ResponseEntity<Usuario> Post(@RequestBody Usuario usuario) {
+	    	Optional<Usuario> user = Optional.ofNullable(usuarioService.CadastrarUsuario(usuario));
+	        try {
+	    	return ResponseEntity.ok(user.get());
+	    } catch(Exception error){
+	    	return ResponseEntity.badRequest().build();
+	    	}
+	    }    
 }
