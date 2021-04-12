@@ -2,7 +2,6 @@ package org.generation.blogPessoal.service;
 
 import java.nio.charset.Charset;
 import java.util.Optional;
-
 import org.apache.commons.codec.binary.Base64;
 import org.generation.blogPessoal.model.UserLogin;
 import org.generation.blogPessoal.model.Usuario;
@@ -31,8 +30,8 @@ public class UsuarioService {
 		return repository.save(usuario);
 	}
 	
-	/*
-	public Usuario CadastrarUsuario(Usuario usuario) {
+	
+	/*public Usuario CadastrarUsuario(Usuario usuario) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		
 		String senhaEncoder = encoder.encode(usuario.getSenha());
