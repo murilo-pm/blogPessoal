@@ -38,6 +38,10 @@ public class Postagem {
 	@ManyToOne							//estabelecimento do tipo de relação (quem criará as chaves estrangeiras será o JPA)
 	@JsonIgnoreProperties("postagem") 	//dentro do parâmetro: propriedade que será ignorada p/ não criar o loop 
 	private Tema tema;
+	
+	@ManyToOne							//estabelecimento do tipo de relação (quem criará as chaves estrangeiras será o JPA)
+	@JsonIgnoreProperties("postagem") 	//dentro do parâmetro: propriedade que será ignorada p/ não criar o loop 
+	private Usuario usuario;
 
 	public long getId() {
 		return id;

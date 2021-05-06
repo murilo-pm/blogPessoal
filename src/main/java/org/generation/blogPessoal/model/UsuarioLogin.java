@@ -1,7 +1,9 @@
 package org.generation.blogPessoal.model;
 
-public class UserLogin {	//para entregar uma resposta no momento em que o usuário entrar na plataforma
+public class UsuarioLogin {	//para entregar uma resposta no momento em que o usuário entrar na plataforma
 
+	private long Id;
+	
 	private String nome;
 	
 	private String usuario;
@@ -9,6 +11,18 @@ public class UserLogin {	//para entregar uma resposta no momento em que o usuár
 	private String senha;
 	
 	private String token;
+	
+	private String foto;
+	
+	private String tipo;
+
+	public long getId() {
+		return Id;
+	}
+
+	public void setId(long id) {
+		Id = id;
+	}
 
 	public String getNome() {
 		return nome;
@@ -41,6 +55,21 @@ public class UserLogin {	//para entregar uma resposta no momento em que o usuár
 	public void setToken(String token) {
 		this.token = token;
 	}
-	
-	
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
 }
